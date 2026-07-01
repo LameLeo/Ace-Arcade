@@ -31,11 +31,75 @@
 </nav>
 
 <main>
-
 <section id="home" class="tab active">
-  <h2>Willkommen 👋</h2>
-  <p>Casino PWA Version 2.0</p>
+
+<div class="card">
+    <h2>👋 Willkommen bei Ace Arcade</h2>
+    <p>Dein persönliches Arcade-Casino mit Spielgeld.</p>
+</div>
+
+<div class="card">
+    <h3>💰 Wallet</h3>
+
+    <div class="stat">
+        <span>Balance</span>
+        <span>$<span id="homeBalance">1000</span></span>
+    </div>
+
+    <div class="stat">
+        <span>Level</span>
+        <span id="homeLevel">1</span>
+    </div>
+
+    <div class="xpBar">
+        <div id="xpFill"></div>
+    </div>
+
+    <p id="xpText">0 / 500 XP</p>
+</div>
+
+<div class="card">
+
+<h3>🎁 Daily Reward</h3>
+
+<p>Komm jeden Tag zurück und sichere dir kostenlose Coins.</p>
+
+<button class="primary-btn" id="dailyButton">
+Daily Reward einsammeln
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Daily Missions</h3>
+
+<ul class="missions">
+
+<li>🚀 Spiele 5 Crash-Runden</li>
+
+<li>💣 Gewinne 3 Mines-Runden</li>
+
+<li>🎰 Drehe Slots 20 Mal</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>▶️ Schnellstart</h3>
+
+<p>Starte direkt dein Lieblingsspiel.</p>
+
+<button class="primary-btn" onclick="openTab('crash')">
+Crash spielen
+</button>
+
+</div>
+
 </section>
+
 
 <section id="crash" class="tab">
   <h2>🚀 Crash</h2>
