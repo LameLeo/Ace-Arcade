@@ -1,1 +1,147 @@
 
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ace Arcade</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+🎰 Ace Arcade
+
+</div>
+
+<div class="wallet">
+
+💰 <span id="coins">1000</span>
+
+⭐ Lv <span id="level">1</span>
+
+</div>
+
+</header>
+
+<nav>
+
+<button onclick="showPage('home')">🏠</button>
+
+<button onclick="showPage('crash')">🚀</button>
+
+<button onclick="showPage('mines')">💣</button>
+
+<button onclick="showPage('slots')">🎰</button>
+
+<button onclick="showPage('plinko')">🎡</button>
+
+<button onclick="showPage('profile')">👤</button>
+
+</nav>
+
+<main>
+
+<section id="home" class="page active">
+
+<h1>Willkommen!</h1>
+
+<div class="card">
+
+<h2>Wallet</h2>
+
+<p>Coins: <span id="walletCoins">1000</span></p>
+
+<p>Level: <span id="walletLevel">1</span></p>
+
+</div>
+
+<div class="card">
+
+<h2>Daily Reward</h2>
+
+<button id="dailyRewardBtn">
+
+🎁 Einsammeln
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Missionen</h2>
+
+<ul>
+
+<li>🚀 Spiele Crash</li>
+
+<li>💣 Gewinne Mines</li>
+
+<li>🎰 Drehe Slots</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="crash" class="page">
+
+<h1>🚀 Crash</h1>
+
+<p>Kommt in Modul 2</p>
+
+</section>
+
+<section id="mines" class="page">
+
+<h1>💣 Mines</h1>
+
+<p>Kommt in Modul 3</p>
+
+</section>
+
+<section id="slots" class="page">
+
+<h1>🎰 Slots</h1>
+
+<p>Kommt in Modul 4</p>
+
+</section>
+
+<section id="plinko" class="page">
+
+<h1>🎡 Plinko</h1>
+
+<p>Kommt in Modul 5</p>
+
+</section>
+
+<section id="profile" class="page">
+
+<h1>👤 Profil</h1>
+
+<p>Kommt später.</p>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
