@@ -41,10 +41,35 @@ function updateUI(){
     const coins=document.getElementById("coins");
     const level=document.getElementById("level");
 
-    if(coins) coins.textContent=player.coins;
-    if(level) level.textContent=player.level;
+    if(coins)
+        coins.textContent=player.coins;
+
+    if(level)
+        level.textContent=player.level;
+
+    const walletCoins=document.getElementById("walletCoins");
+    const walletLevel=document.getElementById("walletLevel");
+
+    if(walletCoins)
+        walletCoins.textContent=player.coins;
+
+    if(walletLevel)
+        walletLevel.textContent=player.level;
+
+    const xpFill=document.getElementById("xpFill");
+    const xpText=document.getElementById("xpText");
+
+    const currentXP=player.xp%500;
+
+    if(xpFill)
+        xpFill.style.width=(currentXP/500*100)+"%";
+
+    if(xpText)
+        xpText.textContent=currentXP+" / 500 XP";
 
     savePlayer();
+
+}
 
 }
 
