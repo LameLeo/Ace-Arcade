@@ -153,6 +153,8 @@ function recordGame(win,coins){
 
 function showPage(page){
 
+    console.log("Seitenwechsel:", page);
+
     document
     .querySelectorAll(".page")
     .forEach(p=>{
