@@ -226,3 +226,157 @@ html += "<div class='historyItem'>"+v+"</div>";
 document.getElementById("history").innerHTML = html;
 
 }
+
+// ===================================
+// MINES 2.0
+// ===================================
+
+let minesRunning = false;
+let mineBombs = [];
+let openedTiles = [];
+let mineBet = 0;
+let mineMultiplier = 1;
+
+const grid = document.getElementById("mineGrid");
+
+function updateMineInfo() {
+    document.getElementById("mineMultiplier").textContent =
+        mineMultiplier.toFixed(2) + "x";
+}
+
+function createGrid() {
+
+    grid.innerHTML = "";
+
+    for (let i = 0; i < 25; i++) {
+
+        const tile = document.createElement("div");
+
+        tile.className = "mineTile";
+
+        tile.dataset.index = i;
+
+        tile.onclick = () => clickMine(i, tile);
+
+        grid.appendChild(tile);
+
+    }
+
+}
+
+function startMinesGame() {
+
+    if (minesRunning) return;
+
+    mineBet = Number(document.getElementById("minesBet").value);
+
+    let bombCount = Number(document.getElementById("bombCount").value);
+
+    if (bombCount < 1) bombCount = 1;
+    if (bombCount > 24) bombCount = 24;
+
+    document.getElementById("bombText").textContent = bombCount;
+    document.getElementById("gemText").textContent = 25 - bombCount;
+
+    if (player.coins < mineBet) {
+
+        alert("Nicht genügend Coins!");
+
+        return;
+
+    }
+
+    addCoins(-mineBet);
+
+    minesRunning = true;
+
+    mineMultiplier = 1.00;
+
+    openedTiles = [];
+
+    mineBombs = [];
+
+    while (mineBombs.length < bombCount) {
+
+        let r = Math.floor(Math.random() * 25);
+
+        if (!mineBombs.includes(r))
+            mineBombs.push(r);
+
+    }
+
+    updateMineInfo();
+
+    createGrid();
+
+}
+
+function clickMine(index, tile) {
+
+    if (!minesRunning) return;
+
+    if (openedTiles.includes(index)) return;
+
+    openedTiles.push(index);
+
+    if (mineBombs.includes(index)) {
+
+        tile.classList.add("bomb");
+
+        tile.textContent = "💣";
+
+        minesRunning = false;
+
+        alert("💥 Boom! Runde verloren.");
+
+        revealBombs();
+
+        return;
+
+    }
+
+    tile.classList.add("safe");
+
+    tile.textContent = "💎";
+
+    mineMultiplier += 0.20;
+
+    updateMineInfo();
+
+}
+
+function revealBombs() {
+
+    document.querySelectorAll(".mineTile").forEach((tile) => {
+
+        let i = Number(tile.dataset.index);
+
+        if (mineBombs.includes(i)) {
+
+            tile.classList.add("bomb");
+
+            tile.textContent = "💣";
+
+        }
+
+    });
+
+}
+
+document.getElementById("startMines").onclick = startMinesGame;
+
+document.getElementById("cashOutMines").onclick = function () {
+
+    if (!minesRunning) return;
+
+    minesRunning = false;
+
+    let win = Math.floor(mineBet * mineMultiplier);
+
+    addCoins(win);
+
+    addXP(20);
+
+    alert("🎉 Cash Out!\n+" + win + " Coins");
+
+};
