@@ -1,1 +1,155 @@
+/* ===========================
+   Ace Arcade v3 - Main
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
+}
+
+body{
+
+    background:#0f172a;
+
+    color:white;
+
+    min-height:100vh;
+
+}
+
+/* Hintergrund */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#1e293b,#0f172a 70%);
+
+    z-index:-2;
+
+}
+
+/* Header */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    background:rgba(25,30,45,.75);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#00ff99;
+
+}
+
+.wallet{
+
+    background:#1e293b;
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+}
+
+/* Navigation */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    background:#161b22;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.navbar button{
+
+    flex:1;
+
+    padding:18px;
+
+    background:none;
+
+    color:white;
+
+    border:none;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.navbar button:hover{
+
+    background:#00ff9920;
+
+}
+
+/* Seiten */
+
+.page{
+
+    display:none;
+
+    padding:25px;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+/* Karten */
+
+.card{
+
+    margin-top:20px;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+}
