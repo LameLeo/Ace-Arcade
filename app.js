@@ -75,6 +75,29 @@ function updateUI(){
     if(xpText)
         xpText.textContent=currentXP+" / 500 XP";
 
+    const gamesPlayed=document.getElementById("gamesPlayed");
+const gamesWon=document.getElementById("gamesWon");
+
+const coinsWon=document.getElementById("coinsWon");
+const coinsLost=document.getElementById("coinsLost");
+
+const streak=document.getElementById("streakCount");
+
+if(gamesPlayed)
+gamesPlayed.textContent=player.gamesPlayed;
+
+if(gamesWon)
+gamesWon.textContent=player.gamesWon;
+
+if(coinsWon)
+coinsWon.textContent=player.coinsWon;
+
+if(coinsLost)
+coinsLost.textContent=player.coinsLost;
+
+if(streak)
+streak.textContent=player.streak+" Tage";
+
     savePlayer();
 
 }
