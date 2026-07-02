@@ -191,3 +191,105 @@ padding:15px;
 }
 
 }
+
+/* ===========================
+   Crash 2.0
+=========================== */
+
+#crash input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    background:#0d1117;
+    color:white;
+    border:2px solid #2a2f36;
+    border-radius:10px;
+    font-size:18px;
+}
+
+#startCrash,
+#cashOut{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#startCrash{
+
+    background:#00ff99;
+
+    color:black;
+
+}
+
+#startCrash:hover{
+
+    transform:scale(1.02);
+
+}
+
+#cashOut{
+
+    background:#ffb000;
+
+    color:black;
+
+}
+
+#cashOut:hover{
+
+    transform:scale(1.02);
+
+}
+
+#multiplier{
+
+    text-align:center;
+
+    font-size:56px;
+
+    color:#00ff99;
+
+    margin:20px 0;
+
+    transition:.08s;
+
+}
+
+#history{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+}
+
+.historyItem{
+
+    background:#222b36;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
