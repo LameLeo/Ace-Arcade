@@ -227,10 +227,14 @@ ctx.shadowBlur=0;
 
     ctx.beginPath();
 
-    ctx.arc(last.x,last.y,6,0,Math.PI*2);
+ctx.shadowColor="#00ff88";
+ctx.shadowBlur=25;
 
-    ctx.fillStyle="#00ff88";
+ctx.arc(last.x,last.y,8,0,Math.PI*2);
 
-    ctx.fill();
+ctx.fillStyle="#00ff88";
+ctx.fill();
+
+ctx.shadowBlur=0;
 
 }
