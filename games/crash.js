@@ -193,6 +193,36 @@ function drawGraph(){
 
     }
 
+// ----------------------------
+// Fläche unter der Kurve
+// ----------------------------
+
+ctx.lineTo(last.x, canvas.height);
+ctx.lineTo(graphPoints[0].x, canvas.height);
+ctx.closePath();
+
+const gradient = ctx.createLinearGradient(
+    0,
+    0,
+    0,
+    canvas.height
+);
+
+if(crashed){
+
+    gradient.addColorStop(0,"rgba(255,59,48,0.45)");
+    gradient.addColorStop(1,"rgba(255,59,48,0)");
+
+}else{
+
+    gradient.addColorStop(0,"rgba(0,255,136,0.45)");
+    gradient.addColorStop(1,"rgba(0,255,136,0)");
+
+}
+
+ctx.fillStyle = gradient;
+ctx.fill();
+    
     // Kurve
 
     if(graphPoints.length<2)
@@ -220,7 +250,7 @@ for(let i=1;i<graphPoints.length-1;i++){
         yc
     );
 
-}
+const last=graphPoints[graphPoints.length-1];
 
 ctx.stroke();
 
@@ -228,7 +258,7 @@ ctx.shadowBlur=0;
 
     // Punkt an der Spitze
 
-    const last=graphPoints[graphPoints.length-1];
+    
 
     ctx.beginPath();
 
