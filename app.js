@@ -18,6 +18,12 @@ let player = JSON.parse(localStorage.getItem("acePlayer")) || {
 
     streak:0
 
+    player.gamesPlayed ??= 0;
+player.gamesWon ??= 0;
+player.coinsWon ??= 0;
+player.coinsLost ??= 0;
+player.streak ??= 0;
+
 };
 
 // ---------- Speichern ----------
@@ -31,11 +37,6 @@ function savePlayer(){
 
 }
 
-player.gamesPlayed ??= 0;
-player.gamesWon ??= 0;
-player.coinsWon ??= 0;
-player.coinsLost ??= 0;
-player.streak ??= 0;
 // ---------- Level ----------
 
 function updateLevel(){
