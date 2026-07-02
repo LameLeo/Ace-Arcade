@@ -157,7 +157,57 @@ Noch keine Runde.
 
 <h1>💣 Mines</h1>
 
-<p>Kommt in Modul 3</p>
+<div class="card">
+
+<h2>Einsatz</h2>
+
+<input
+id="minesBet"
+type="number"
+value="100"
+min="10">
+
+<h2>Bomben</h2>
+
+<input
+id="bombCount"
+type="number"
+value="3"
+min="1"
+max="24">
+
+<button id="startMines">
+
+🎮 Spiel starten
+
+</button>
+
+</div>
+
+<div class="card">
+
+<p>💣 Bomben:
+<span id="bombText">3</span></p>
+
+<p>💎 Sichere Felder:
+<span id="gemText">22</span></p>
+
+<p>Multiplikator:
+<span id="mineMultiplier">1.00x</span></p>
+
+<button id="cashOutMines">
+
+💰 Cash Out
+
+</button>
+
+</div>
+
+<div class="card">
+
+<div id="mineGrid"></div>
+
+</div>
 
 </section>
 
