@@ -8,7 +8,7 @@ let player = JSON.parse(localStorage.getItem("acePlayer")) || {
 
     coins: 1000,
     xp: 0,
-    level: 1
+    level: 1,
 
     gamesPlayed:0,
     gamesWon:0,
@@ -31,6 +31,11 @@ function savePlayer(){
 
 }
 
+player.gamesPlayed ??= 0;
+player.gamesWon ??= 0;
+player.coinsWon ??= 0;
+player.coinsLost ??= 0;
+player.streak ??= 0;
 // ---------- Level ----------
 
 function updateLevel(){
