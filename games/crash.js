@@ -21,6 +21,7 @@ const canvas = document.getElementById("crashCanvas");
 const ctx = canvas.getContext("2d");
 
 let graphPoints = [];
+let crashed = false;
 
 // ----------------------------
 // START
@@ -46,6 +47,7 @@ document.getElementById("startCrash").onclick = function(){
 
     multiplier = 1;
     graphPoints = [];
+    crashed = false;
     crashRunning = true;
 
     display.style.color="#00ff88";
@@ -84,6 +86,9 @@ drawGraph();
         clearInterval(timer);
 
         crashRunning=false;
+
+        crashed = true;
+drawGraph();
 
         display.style.color="#ff3b30";
 
@@ -195,7 +200,8 @@ function drawGraph(){
 
     ctx.beginPath();
 
-ctx.strokeStyle="#00ff88";
+ctx.strokeStyle = crashed ? "#ff3b30" : "#00ff88";
+ctx.shadowColor = crashed ? "#ff3b30" : "#00ff88";
 ctx.lineWidth=4;
 
 ctx.shadowColor="#00ff88";
@@ -227,12 +233,12 @@ ctx.shadowBlur=0;
 
     ctx.beginPath();
 
-ctx.shadowColor="#00ff88";
-ctx.shadowBlur=25;
+ctx.shadowColor = crashed ? "#ff3b30" : "#00ff88";
+ctx.shadowBlur = 25;
 
 ctx.arc(last.x,last.y,8,0,Math.PI*2);
 
-ctx.fillStyle="#00ff88";
+ctx.fillStyle = crashed ? "#ff3b30" : "#00ff88";
 ctx.fill();
 
 ctx.shadowBlur=0;
