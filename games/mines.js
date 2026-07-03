@@ -22,7 +22,7 @@ document.getElementById("startMines").onclick = function(){
         alert("Ungültiger Einsatz.");
         return;
     }
-
+document.getElementById("minesMultiplier").textContent = "1.00x";
     if(player.coins < currentBet){
         alert("Nicht genügend Coins.");
         return;
@@ -120,6 +120,10 @@ function revealTile(index,tile){
     tile.textContent = "💎";
     tile.style.background = "#00ff88";
     revealed++;
+    const multiplier = 1 + revealed * 0.35;
+
+document.getElementById("minesMultiplier").textContent =
+    multiplier.toFixed(2) + "x";
 
 }
   
