@@ -43,31 +43,54 @@ function createBoard(){
     grid.innerHTML = "";
 
     mineGame = [];
-
     bombs = [];
 
-    while(bombs.length < 3){
+    for(let i=0;i<25;i++){
 
-    const random = Math.floor(Math.random()*25);
+        const tile=document.createElement("div");
 
-    if(!bombs.includes(random)){
+        tile.className="mineTile";
 
-        bombs.push(random);
+        tile.dataset.id=i;
+
+        tile.onclick=function(){
+
+            if(!gameRunning) return;
+
+            revealTile(i,tile);
+
+        };
+
+        grid.appendChild(tile);
+
+        mineGame.push({
+
+            bomb:false,
+            opened:false
+
+        });
 
     }
 
+    while(bombs.length < 3){
+
+        const random=Math.floor(Math.random()*25);
+
+        if(!bombs.includes(random)){
+
+            bombs.push(random);
+
+        }
+
+    }
+
+    bombs.forEach(index=>{
+
+        mineGame[index].bomb = true;
+
+    });
+
 }
-
-bombs.forEach(index=>{
-
-    mineGame[index] = {
-
-        bomb:true,
-        opened:false
-
-    };
-
-});
 
     for(let i=0;i<25;i++){
 
