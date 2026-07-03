@@ -46,6 +46,29 @@ function createBoard(){
 
     bombs = [];
 
+    while(bombs.length < 3){
+
+    const random = Math.floor(Math.random()*25);
+
+    if(!bombs.includes(random)){
+
+        bombs.push(random);
+
+    }
+
+}
+
+bombs.forEach(index=>{
+
+    mineGame[index] = {
+
+        bomb:true,
+        opened:false
+
+    };
+
+});
+
     for(let i=0;i<25;i++){
 
         const tile=document.createElement("div");
@@ -79,11 +102,27 @@ function revealTile(index,tile){
     if(mineGame[index].opened)
         return;
 
-    tile.textContent="💎";
+    mineGame[index].opened = true;
 
-    tile.style.background="#00ff88";
+    if(mineGame[index].bomb){
 
-    mineGame[index].opened=true;
+        tile.textContent = "💣";
+        tile.style.background = "#ff3b30";
+
+        gameRunning = false;
+
+        recordGame(false,
+            Number(document.getElementById("minesBet").value)
+        );
+
+        alert("💥 Boom! Du hast verloren.");
+
+        return;
+
+    }
+
+    tile.textContent = "💎";
+    tile.style.background = "#00ff88";
 
 }
   
