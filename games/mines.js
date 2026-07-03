@@ -158,7 +158,11 @@ tile.onclick = null;
 
 revealed++;
 
-const multiplier = 1 + revealed * 0.35;
+const multiplier =
+(
+    1 +
+    (revealed * (bombCount / 8))
+).toFixed(2);
 
 document.getElementById("minesMultiplier").textContent =
     multiplier.toFixed(2) + "x";
@@ -171,7 +175,11 @@ document.getElementById("cashOutMines").onclick = function(){
 
     gameRunning = false;
 
-    const multiplier = 1 + revealed * 0.35;
+   const multiplier =
+(
+    1 +
+    (revealed * (bombCount / 8))
+);
 
     const win = Math.floor(currentBet * multiplier);
 
