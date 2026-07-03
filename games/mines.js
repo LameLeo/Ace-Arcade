@@ -109,9 +109,7 @@ function revealTile(index,tile){
 
         gameRunning = false;
 
-        recordGame(false,
-            Number(document.getElementById("minesBet").value)
-        );
+        recordGame(false, currentBet); 
 
         alert("💥 Boom! Du hast verloren.");
 
