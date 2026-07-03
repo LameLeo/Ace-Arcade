@@ -195,3 +195,15 @@ document.getElementById("cashOutMines").onclick = function(){
     );
 
 };
+
+function updateChance(){
+
+    const safeTiles = 25 - bombCount - revealed;
+    const totalTiles = 25 - revealed;
+
+    const chance = (safeTiles / totalTiles) * 100;
+
+    document.getElementById("mineChance").textContent =
+        chance.toFixed(1) + "%";
+
+}
