@@ -169,37 +169,42 @@ if(s1===s2 && s2===s3){
 
     win = true;
 
-    switch(true){
+    const pairSymbol =
+        (s1===s2) ? s1 :
+        (s2===s3) ? s2 :
+        s1;
 
-    case s1==="🍒" && (s1===s2 || s1===s3):
-        multiplier = 1.2;
-        break;
+    switch(pairSymbol){
 
-    case s1==="🍋" && (s1===s2 || s1===s3):
-        multiplier = 1.4;
-        break;
+        case "🍒":
+            multiplier = 1.2;
+            break;
 
-    case s1==="🍇" && (s1===s2 || s1===s3):
-        multiplier = 1.8;
-        break;
+        case "🍋":
+            multiplier = 1.4;
+            break;
 
-    case s1==="⭐" && (s1===s2 || s1===s3):
-        multiplier = 2.5;
-        break;
+        case "🍇":
+            multiplier = 1.8;
+            break;
 
-    case s1==="💎" && (s1===s2 || s1===s3):
-        multiplier = 4;
-        break;
+        case "⭐":
+            multiplier = 2.5;
+            break;
 
-    case s1==="7️⃣" && (s1===s2 || s1===s3):
-        multiplier = 8;
-        break;
+        case "💎":
+            multiplier = 4;
+            break;
 
-    default:
-        multiplier = 1.2;
+        case "7️⃣":
+            multiplier = 8;
+            break;
 
-}
+        default:
+            multiplier = 1.2;
+
     
+
     message = "✨ 2 Gleiche!";
 
 }
