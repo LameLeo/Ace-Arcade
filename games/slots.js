@@ -39,6 +39,12 @@ document.getElementById("spinSlots").onclick = function(){
 
     addCoins(-bet);
 
+    document.getElementById("slot1").className = "slot";
+    document.getElementById("slot2").className = "slot";
+    document.getElementById("slot3").className = "slot";
+
+    document.getElementById("slotResult").innerHTML = "";
+
     slotRunning = true;
 
     document.getElementById("slotResult").textContent =
@@ -119,6 +125,10 @@ function finishSpin(bet){
 
         recordGame(true,win);
 
+        slot1.classList.remove("lose");
+        slot2.classList.remove("lose");
+        slot3.classList.remove("lose");
+
         slot1.classList.add("win");
         slot2.classList.add("win");
         slot3.classList.add("win");
@@ -130,6 +140,10 @@ function finishSpin(bet){
 
         recordGame(false,bet);
 
+        slot1.classList.remove("win");
+        slot2.classList.remove("win");
+        slot3.classList.remove("win");
+        
         slot1.classList.add("lose");
         slot2.classList.add("lose");
         slot3.classList.add("lose");
