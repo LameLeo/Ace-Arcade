@@ -168,7 +168,38 @@ if(s1===s2 && s2===s3){
 ){
 
     win = true;
-    multiplier = 1.5;
+
+    switch(true){
+
+    case s1==="🍒" && (s1===s2 || s1===s3):
+        multiplier = 1.2;
+        break;
+
+    case s1==="🍋" && (s1===s2 || s1===s3):
+        multiplier = 1.4;
+        break;
+
+    case s1==="🍇" && (s1===s2 || s1===s3):
+        multiplier = 1.8;
+        break;
+
+    case s1==="⭐" && (s1===s2 || s1===s3):
+        multiplier = 2.5;
+        break;
+
+    case s1==="💎" && (s1===s2 || s1===s3):
+        multiplier = 4;
+        break;
+
+    case s1==="7️⃣" && (s1===s2 || s1===s3):
+        multiplier = 8;
+        break;
+
+    default:
+        multiplier = 1.2;
+
+}
+    
     message = "✨ 2 Gleiche!";
 
 }
