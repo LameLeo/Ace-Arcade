@@ -75,3 +75,24 @@ flex-wrap:wrap;
 margin-top:20px;
 
 }
+.mineTile.open{
+
+    transform: rotateY(180deg) scale(0.95);
+
+}
+
+.mineTile.bomb{
+
+    animation: bombShake .35s;
+}
+
+@keyframes bombShake{
+
+    0%{transform:translateX(0);}
+    20%{transform:translateX(-6px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(4px);}
+    100%{transform:translateX(0);}
+
+}
