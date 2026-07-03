@@ -1,1 +1,75 @@
+/* ================================
+   ACE ARCADE - SLOTS
+================================ */
 
+#slotMachine{
+
+    display:flex;
+    justify-content:center;
+    gap:18px;
+
+    margin:25px 0;
+
+}
+
+.slot{
+
+    width:90px;
+    height:90px;
+
+    background:#1f2937;
+
+    border:2px solid #2d3748;
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:48px;
+
+    box-shadow:
+        0 0 12px rgba(0,255,136,.15);
+
+    transition:.2s;
+
+}
+
+.slot.spinning{
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 22px rgba(0,255,136,.6);
+
+}
+
+.slot.win{
+
+    border-color:#00ff88;
+
+    box-shadow:
+        0 0 30px #00ff88;
+
+}
+
+.slot.lose{
+
+    border-color:#ff3b30;
+
+    box-shadow:
+        0 0 30px #ff3b30;
+
+}
+
+#slotResult{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
