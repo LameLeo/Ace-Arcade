@@ -193,83 +193,107 @@ function drawGraph(){
 
     }
 
-// ----------------------------
-// Fläche unter der Kurve
-// ----------------------------
-
-ctx.lineTo(last.x, canvas.height);
-ctx.lineTo(graphPoints[0].x, canvas.height);
-ctx.closePath();
-
-const gradient = ctx.createLinearGradient(
-    0,
-    0,
-    0,
-    canvas.height
-);
-
-if(crashed){
-
-    gradient.addColorStop(0,"rgba(255,59,48,0.45)");
-    gradient.addColorStop(1,"rgba(255,59,48,0)");
-
-}else{
-
-    gradient.addColorStop(0,"rgba(0,255,136,0.45)");
-    gradient.addColorStop(1,"rgba(0,255,136,0)");
-
-}
-
-ctx.fillStyle = gradient;
-ctx.fill();
-    
-    // Kurve
-
     if(graphPoints.length<2)
         return;
 
+    // ---------- Kurve ----------
+
     ctx.beginPath();
 
-ctx.strokeStyle = crashed ? "#ff3b30" : "#00ff88";
-ctx.shadowColor = crashed ? "#ff3b30" : "#00ff88";
-    
-ctx.lineWidth=4;
-ctx.shadowBlur=18;
+    ctx.moveTo(graphPoints[0].x,graphPoints[0].y);
 
-ctx.moveTo(graphPoints[0].x, graphPoints[0].y);
+    for(let i=1;i<graphPoints.length-1;i++){
 
-for(let i=1;i<graphPoints.length-1;i++){
+        const xc=(graphPoints[i].x+graphPoints[i+1].x)/2;
+        const yc=(graphPoints[i].y+graphPoints[i+1].y)/2;
 
-    const xc=(graphPoints[i].x+graphPoints[i+1].x)/2;
-    const yc=(graphPoints[i].y+graphPoints[i+1].y)/2;
+        ctx.quadraticCurveTo(
+            graphPoints[i].x,
+            graphPoints[i].y,
+            xc,
+            yc
+        );
 
-    ctx.quadraticCurveTo(
-        graphPoints[i].x,
-        graphPoints[i].y,
-        xc,
-        yc
+    }
+
+    const last=graphPoints[graphPoints.length-1];
+
+    // ---------- Fläche ----------
+
+    ctx.lineTo(last.x,canvas.height);
+
+    ctx.lineTo(graphPoints[0].x,canvas.height);
+
+    ctx.closePath();
+
+    const gradient=ctx.createLinearGradient(
+        0,
+        0,
+        0,
+        canvas.height
     );
 
-const last=graphPoints[graphPoints.length-1];
+    if(crashed){
 
-ctx.stroke();
+        gradient.addColorStop(0,"rgba(255,59,48,0.40)");
+        gradient.addColorStop(1,"rgba(255,59,48,0)");
 
-ctx.shadowBlur=0;
+    }else{
 
-    // Punkt an der Spitze
+        gradient.addColorStop(0,"rgba(0,255,136,0.40)");
+        gradient.addColorStop(1,"rgba(0,255,136,0)");
 
-    
+    }
+
+    ctx.fillStyle=gradient;
+    ctx.fill();
+
+    // ---------- Linie ----------
 
     ctx.beginPath();
 
-ctx.shadowColor = crashed ? "#ff3b30" : "#00ff88";
-ctx.shadowBlur = 25;
+    ctx.moveTo(graphPoints[0].x,graphPoints[0].y);
 
-ctx.arc(last.x,last.y,8,0,Math.PI*2);
+    for(let i=1;i<graphPoints.length-1;i++){
 
-ctx.fillStyle = crashed ? "#ff3b30" : "#00ff88";
-ctx.fill();
+        const xc=(graphPoints[i].x+graphPoints[i+1].x)/2;
+        const yc=(graphPoints[i].y+graphPoints[i+1].y)/2;
 
-ctx.shadowBlur=0;
+        ctx.quadraticCurveTo(
+            graphPoints[i].x,
+            graphPoints[i].y,
+            xc,
+            yc
+        );
+
+    }
+
+    ctx.strokeStyle=crashed ? "#ff3b30" : "#00ff88";
+
+    ctx.shadowColor=ctx.strokeStyle;
+
+    ctx.shadowBlur=18;
+
+    ctx.lineWidth=4;
+
+    ctx.stroke();
+
+    ctx.shadowBlur=0;
+
+    // ---------- Punkt ----------
+
+    ctx.beginPath();
+
+    ctx.arc(last.x,last.y,8,0,Math.PI*2);
+
+    ctx.fillStyle=crashed ? "#ff3b30" : "#00ff88";
+
+    ctx.shadowColor=ctx.fillStyle;
+
+    ctx.shadowBlur=25;
+
+    ctx.fill();
+
+    ctx.shadowBlur=0;
 
 }
