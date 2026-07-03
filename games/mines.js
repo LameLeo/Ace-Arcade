@@ -92,34 +92,7 @@ function createBoard(){
 
 }
 
-    for(let i=0;i<25;i++){
 
-        const tile=document.createElement("div");
-
-        tile.className="mineTile";
-
-        tile.dataset.id=i;
-
-        tile.onclick=function(){
-
-            if(!gameRunning) return;
-
-            revealTile(i,tile);
-
-        };
-
-        grid.appendChild(tile);
-        mineGame.push({
-
-    bomb:false,
-    opened:false
-
-});
-
-    }
-
-    
-}
 function revealTile(index,tile){
 
     if(mineGame[index].opened)
