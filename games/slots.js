@@ -219,8 +219,13 @@ if(win){
     slot2.className = "slot win";
     slot3.className = "slot win";
 
-    document.getElementById("slotResult").textContent =
-        message + " +" + coins + " Coins";
+    const result =
+document.getElementById("slotResult");
+
+result.style.color="#00ff88";
+
+result.textContent=
+message + " +" + coins + " Coins";
 
 }else{
 
@@ -230,7 +235,12 @@ if(win){
     slot2.className = "slot lose";
     slot3.className = "slot lose";
 
-    document.getElementById("slotResult").textContent =
-        "❌ Leider verloren.";
+    const result =
+document.getElementById("slotResult");
+
+result.style.color="#ff3b30";
+
+result.textContent=
+"❌ Leider verloren.";
 
 }
