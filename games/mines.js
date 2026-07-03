@@ -106,6 +106,8 @@ function revealTile(index,tile){
 
         tile.textContent = "💣";
         tile.style.background = "#ff3b30";
+        tile.style.cursor = "default";
+tile.onclick = null;
 
         gameRunning = false;
 
@@ -129,8 +131,18 @@ return;
     }
 
     tile.textContent = "💎";
-    tile.style.background = "#00ff88";
-    revealed++;
+tile.style.background = "#00ff88";
+
+tile.style.cursor = "default";
+tile.style.transform = "scale(0.95)";
+tile.onclick = null;
+
+revealed++;
+
+const multiplier = 1 + revealed * 0.35;
+
+document.getElementById("minesMultiplier").textContent =
+    multiplier.toFixed(2) + "x";
     const multiplier = 1 + revealed * 0.35;
 
 document.getElementById("minesMultiplier").textContent =
