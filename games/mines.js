@@ -9,7 +9,7 @@ let bombs = [];
 let gameRunning = false;
 let currentBet = 0;
 let revealed = 0;
-
+let bombCount = 3;
 // ----------------------------
 // START
 // ----------------------------
@@ -17,6 +17,8 @@ let revealed = 0;
 document.getElementById("startMines").onclick = function(){
 
     currentBet = Number(document.getElementById("minesBet").value);
+    bombCount =
+Number(document.getElementById("bombCount").value);
 
     if(currentBet <= 0){
         alert("Ungültiger Einsatz.");
@@ -74,7 +76,7 @@ function createBoard(){
 
     }
 
-    while(bombs.length < 3){
+    while(bombs.length < bombCount){
 
         const random=Math.floor(Math.random()*25);
 
