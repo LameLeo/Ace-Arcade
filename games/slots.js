@@ -112,43 +112,87 @@ function finishSpin(bet){
     slot2.textContent = s2;
     slot3.textContent = s3;
 
-    if(s1===s2 && s2===s3){
+    let multiplier = 0;
+let message = "";
+let win = false;
 
-        const win = bet * 5;
+// ===== 3 gleiche =====
 
-        addCoins(win);
-        addXP(30);
+if(s1===s2 && s2===s3){
 
-        recordGame(true,win);
+    win = true;
 
-        slot1.classList.remove("lose");
-        slot2.classList.remove("lose");
-        slot3.classList.remove("lose");
+    switch(s1){
 
-        slot1.classList.add("win");
-        slot2.classList.add("win");
-        slot3.classList.add("win");
+        case "🍒":
+            multiplier = 2;
+            break;
 
-        document.getElementById("slotResult").textContent =
-        "🎉 JACKPOT! +" + win + " Coins";
+        case "🍋":
+            multiplier = 3;
+            break;
 
-    }else{
+        case "🍇":
+            multiplier = 4;
+            break;
 
-        recordGame(false,bet);
+        case "⭐":
+            multiplier = 6;
+            break;
 
-        slot1.classList.remove("win");
-        slot2.classList.remove("win");
-        slot3.classList.remove("win");
-        
-        slot1.classList.add("lose");
-        slot2.classList.add("lose");
-        slot3.classList.add("lose");
+        case "💎":
+            multiplier = 10;
+            break;
 
-        document.getElementById("slotResult").textContent =
-        "❌ Leider verloren.";
+        case "7️⃣":
+            multiplier = 25;
+            break;
 
     }
 
-    slotRunning = false;
+    message = "🎉 JACKPOT!";
+
+// ===== 2 gleiche =====
+
+}else if(
+    s1===s2 ||
+    s2===s3 ||
+    s1===s3
+){
+
+    win = true;
+    multiplier = 1.5;
+    message = "✨ 2 Gleiche!";
+
+}
+
+// ===== Auszahlung =====
+
+if(win){
+
+    const coins = Math.floor(bet * multiplier);
+
+    addCoins(coins);
+    addXP(20);
+
+    recordGame(true, coins);
+
+    slot1.className = "slot win";
+    slot2.className = "slot win";
+    slot3.className = "slot win";
+
+    document.getElementById("slotResult").textContent =
+        message + " +" + coins + " Coins";
+
+}else{
+
+    recordGame(false, bet);
+
+    slot1.className = "slot lose";
+    slot2.className = "slot lose";
+    slot3.className = "slot lose";
+
+    document.getElementById("slotResult").textContent =
+        "❌ Leider verloren.";
 
 }
