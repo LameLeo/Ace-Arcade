@@ -162,7 +162,8 @@ if(s1===s2 && s2===s3){
     }
 
     message = "🎉 JACKPOT!";
-
+}
+    
 // ===== 2 gleiche =====
 
 }else if(
@@ -207,7 +208,7 @@ if(s1===s2 && s2===s3){
         default:
             multiplier = 1.2;
 
-    
+    }
 
     message = "✨ 2 Gleiche!";
 
