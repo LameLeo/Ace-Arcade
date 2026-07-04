@@ -72,29 +72,48 @@ slot3.classList.remove("win","lose");
 
     let spins = 0;
 
-    const animation = setInterval(function(){
+const animation = setInterval(function(){
 
+    if(spins < 25){
         slot1.textContent =
         symbols[Math.floor(Math.random()*symbols.length)];
+    }
 
+    if(spins < 28){
         slot2.textContent =
         symbols[Math.floor(Math.random()*symbols.length)];
+    }
 
+    if(spins < 31){
         slot3.textContent =
         symbols[Math.floor(Math.random()*symbols.length)];
+    }
 
-        spins++;
+    spins++;
 
-        if(spins >= 25){
+    // Erste Walze stoppt
+    if(spins === 25){
+        slot1.classList.remove("spinning");
+    }
 
-            clearInterval(animation);
+    // Zweite Walze stoppt
+    if(spins === 28){
+        slot2.classList.remove("spinning");
+    }
 
-            finishSpin(bet);
+    // Dritte Walze stoppt
+    if(spins === 31){
 
-        }
+        clearInterval(animation);
 
-    },100);
+        slot3.classList.remove("spinning");
 
+        finishSpin(bet);
+
+    }
+
+},100);
+    
 };
 
 // ----------------------------
