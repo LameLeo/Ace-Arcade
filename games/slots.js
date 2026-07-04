@@ -333,3 +333,7 @@ if(win){
     "❌ Leider verloren.";
 
 }
+
+slotRunning = false;
+
+}
