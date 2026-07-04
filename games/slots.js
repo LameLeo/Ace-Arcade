@@ -213,7 +213,15 @@ if(s1===s2 && s2===s3){
 
     }
 
+    if(s1 === "7️⃣"){
+
+    message = "💰 MEGA JACKPOT!";
+
+}else{
+
     message = "🎉 JACKPOT!";
+
+}
     
 // ===== 2 gleiche =====
 
@@ -269,13 +277,31 @@ if(s1===s2 && s2===s3){
 
 if(win){
 
-    const coins = Math.floor(bet * multiplier);
+    let coins = Math.floor(bet * multiplier);
 
-    addCoins(coins);
-    addXP(20);
+// Nur bei 3x 7️⃣ gibt es den Jackpot
+if(s1 === "7️⃣" && s2 === "7️⃣" && s3 === "7️⃣"){
 
-    recordGame(true, coins);
+    coins += jackpot;
 
+    jackpot = 1000;
+
+    document.getElementById("slotJackpot").textContent =
+    jackpot;
+
+}else{
+
+    // Jackpot-Anzeige aktualisieren
+    document.getElementById("slotJackpot").textContent =
+    jackpot;
+
+}
+
+addCoins(coins);
+addXP(20);
+
+recordGame(true, coins);
+    
     slot1.className = "slot";
     slot2.className = "slot";
     slot3.className = "slot";
