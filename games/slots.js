@@ -72,22 +72,49 @@ slot3.classList.remove("win","lose");
 
     let spins = 0;
 
+    const final1 =
+symbols[Math.floor(Math.random()*symbols.length)];
+
+const final2 =
+symbols[Math.floor(Math.random()*symbols.length)];
+
+const final3 =
+symbols[Math.floor(Math.random()*symbols.length)];
+
 const animation = setInterval(function(){
 
     if(spins < 25){
-        slot1.textContent =
-        symbols[Math.floor(Math.random()*symbols.length)];
-    }
+
+    slot1.textContent =
+    symbols[Math.floor(Math.random()*symbols.length)];
+
+}else{
+
+    slot1.textContent = final1;
+
+}
 
     if(spins < 28){
-        slot2.textContent =
-        symbols[Math.floor(Math.random()*symbols.length)];
-    }
+
+    slot2.textContent =
+    symbols[Math.floor(Math.random()*symbols.length)];
+
+}else{
+
+    slot2.textContent = final2;
+
+}
 
     if(spins < 31){
-        slot3.textContent =
-        symbols[Math.floor(Math.random()*symbols.length)];
-    }
+
+    slot3.textContent =
+    symbols[Math.floor(Math.random()*symbols.length)];
+
+}else{
+
+    slot3.textContent = final3;
+
+}
 
     spins++;
 
@@ -108,7 +135,12 @@ const animation = setInterval(function(){
 
         slot3.classList.remove("spinning");
 
-        finishSpin(bet);
+        finishSpin(
+    bet,
+    final1,
+    final2,
+    final3
+);
 
     }
 
@@ -120,7 +152,12 @@ const animation = setInterval(function(){
 // ENDE
 // ----------------------------
 
-function finishSpin(bet){
+function finishSpin(
+    bet,
+    s1,
+    s2,
+    s3
+){
 
     const slot1 = document.getElementById("slot1");
     const slot2 = document.getElementById("slot2");
@@ -129,19 +166,6 @@ function finishSpin(bet){
     slot1.classList.remove("spinning");
     slot2.classList.remove("spinning");
     slot3.classList.remove("spinning");
-
-    const s1 =
-    symbols[Math.floor(Math.random()*symbols.length)];
-
-    const s2 =
-    symbols[Math.floor(Math.random()*symbols.length)];
-
-    const s3 =
-    symbols[Math.floor(Math.random()*symbols.length)];
-
-    slot1.textContent = s1;
-    slot2.textContent = s2;
-    slot3.textContent = s3;
 
     let multiplier = 0;
 let message = "";
