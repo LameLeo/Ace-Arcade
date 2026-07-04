@@ -254,4 +254,6 @@ result.textContent=
 
 }
 
+slotRunning = false;
+    
 }
