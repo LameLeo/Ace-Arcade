@@ -73,3 +73,19 @@
     font-weight:bold;
 
 }
+
+.slotJackpot{
+
+    margin:15px 0;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#ffd700;
+
+    text-shadow:0 0 10px #ffd700;
+
+}
