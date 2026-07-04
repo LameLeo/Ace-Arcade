@@ -19,6 +19,7 @@ const symbols = [
 ];
 
 let slotRunning = false;
+let jackpot = 1000;
 
 // ----------------------------
 // SPIN
@@ -45,6 +46,10 @@ document.getElementById("spinSlots").onclick = function(){
     }
 
     addCoins(-bet);
+    jackpot += Math.floor(bet * 0.02);
+
+document.getElementById("slotJackpot").textContent =
+    jackpot;
 
     document.getElementById("slot1").className = "slot";
     document.getElementById("slot2").className = "slot";
