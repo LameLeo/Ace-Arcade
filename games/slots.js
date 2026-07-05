@@ -55,11 +55,23 @@ document.getElementById("spinSlots").onclick = function(){
 
     }
 
+    if(freeSpins > 0){
+
+    freeSpins--;
+
+    document.getElementById("slotFreeSpins").textContent =
+    freeSpins;
+
+}else{
+
     addCoins(-bet);
+
     jackpot += Math.floor(bet * 0.02);
 
-document.getElementById("slotJackpot").textContent =
+    document.getElementById("slotJackpot").textContent =
     jackpot;
+
+}
 
     document.getElementById("slot1").className = "slot";
     document.getElementById("slot2").className = "slot";
@@ -200,6 +212,14 @@ let win = false;
 if(s1===s2 && s2===s3){
 
     win = true;
+    if(s1 === "💎"){
+
+    freeSpins += 5;
+
+    document.getElementById("slotFreeSpins").textContent =
+    freeSpins;
+
+}
 
     switch(s1){
 
