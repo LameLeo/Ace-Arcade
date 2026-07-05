@@ -235,10 +235,11 @@ if(s1===s2 && s2===s3){
 }else{
 
     message = "🎉 JACKPOT!";
-    jackpotSound.currentTime = 0;
-    jackpotSound.play();
 
 }
+
+jackpotSound.currentTime = 0;
+jackpotSound.play();
     
 // ===== 2 gleiche =====
 
