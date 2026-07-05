@@ -29,6 +29,7 @@ winSound.volume = 0.5;
 loseSound.volume = 0.5;
 jackpotSound.volume = 0.8;
 let jackpot = 1000;
+let freeSpins = 0;
 
 // ----------------------------
 // SPIN
