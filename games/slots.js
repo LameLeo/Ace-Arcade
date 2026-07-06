@@ -209,10 +209,7 @@ let win = false;
 
 // ===== 3 gleiche =====
 
-if(s1===s2 && s2===s3){
-
-    win = true;
-    if(s1 === "💎"){
+if(s1 === "⭐" && s2 === "⭐" && s3 === "⭐"){
 
     freeSpins += 5;
 
