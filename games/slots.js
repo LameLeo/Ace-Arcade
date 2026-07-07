@@ -406,8 +406,8 @@ recordGame(true, coins);
     result.style.color="#00ff88";
 
     result.textContent =
-    message + " +" + coins + " Coins";
-
+    message + " +" + formatCoins(coins) + " Coins";
+    
     // Konfetti bei 3 gleichen Symbolen
 if(s1 === s2 && s2 === s3){
 
