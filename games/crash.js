@@ -149,8 +149,9 @@ document.getElementById("cashOut").onclick=function(){
 
     display.style.color="#00ff88";
 
-    display.textContent=
-    "✅ "+multiplier.toFixed(2)+"x";
+    display.innerHTML =
+    "✅ " + multiplier.toFixed(2) + "x<br>+" +
+    formatCoins(win) + " Coins";
 
     addHistory(multiplier.toFixed(2));
 
