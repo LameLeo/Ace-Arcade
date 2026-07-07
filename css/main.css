@@ -154,44 +154,61 @@ body::before{
 
 }
 
-button,
-.primary-btn{
+.primary-btn,
+#spinSlots,
+#startMines,
+#cashOutMines,
+#startCrash,
+#cashOut,
+#dailyRewardBtn{
 
-    background:#14532d;
+    background:linear-gradient(180deg,#1b7a42,#14532d);
+
     color:white;
 
-    border:none;
-    border-radius:12px;
+    border:1px solid #22c55e;
+
+    border-radius:14px;
 
     padding:12px 22px;
 
     font-size:16px;
-    font-weight:bold;
+    font-weight:700;
 
     cursor:pointer;
 
-    transition:0.2s;
+    transition:.2s;
 
-    box-shadow:0 0 12px rgba(0,255,120,.15);
+    box-shadow:
+        0 0 12px rgba(34,197,94,.25),
+        inset 0 1px rgba(255,255,255,.15);
 
 }
 
-button:hover,
-.primary-btn:hover{
+.primary-btn:hover,
+#spinSlots:hover,
+#startMines:hover,
+#cashOutMines:hover,
+#startCrash:hover,
+#cashOut:hover,
+#dailyRewardBtn:hover{
 
-    background:#166534;
+    background:linear-gradient(180deg,#22c55e,#166534);
 
     transform:translateY(-2px);
 
-    box-shadow:0 0 18px rgba(0,255,120,.35);
+    box-shadow:0 0 18px rgba(34,197,94,.45);
 
 }
 
-button:active,
-.primary-btn:active{
+.primary-btn:active,
+#spinSlots:active,
+#startMines:active,
+#cashOutMines:active,
+#startCrash:active,
+#cashOut:active,
+#dailyRewardBtn:active{
 
     transform:scale(.97);
-
-    background:#15803d;
 
 }
