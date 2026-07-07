@@ -252,3 +252,30 @@ select:focus{
     background:#f97316 !important;
 
 }
+
+#cashOut,
+.cashout{
+
+    background:#ea580c !important;
+    border-color:#fb923c !important;
+
+}
+
+#cashOut:hover,
+.cashout:hover{
+
+    background:#f97316 !important;
+
+}
+
+input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+select{
+
+    appearance:none;
+
+}
