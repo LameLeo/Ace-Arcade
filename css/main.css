@@ -153,3 +153,45 @@ body::before{
     box-shadow:0 8px 30px rgba(0,0,0,.25);
 
 }
+
+button,
+.primary-btn{
+
+    background:#14532d;
+    color:white;
+
+    border:none;
+    border-radius:12px;
+
+    padding:12px 22px;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+    box-shadow:0 0 12px rgba(0,255,120,.15);
+
+}
+
+button:hover,
+.primary-btn:hover{
+
+    background:#166534;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 18px rgba(0,255,120,.35);
+
+}
+
+button:active,
+.primary-btn:active{
+
+    transform:scale(.97);
+
+    background:#15803d;
+
+}
