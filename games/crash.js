@@ -131,14 +131,14 @@ explosionTimer = setInterval(function(){
 
 },20);
 
-        display.style.color="#ff3b30";
+        display.style.color = "#ff3b30";
 
-        display.textContent="💥 CRASH";
+        display.textContent = "💥 " + crashPoint.toFixed(2) + "x";
 
         addHistory(crashPoint.toFixed(2));
 
-        recordGame(false,bet);
-
+        recordGame(false, bet);
+    
     }
 
 }
