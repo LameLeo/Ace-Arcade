@@ -3,7 +3,7 @@
 // ================================
 
 let crashRunning = false;
-let multiplier = 1;
+let multiplier = 0;
 let crashPoint = 1;
 let bet = 0;
 let autoCash = 0;
@@ -38,7 +38,7 @@ document.getElementById("startCrash").onclick = function(){
 
     autoCash = Number(document.getElementById("autoCash").value);
 
-if(isNaN(autoCash) || autoCash < 1){
+if(isNaN(autoCash) || autoCash <= 0){
     autoCash = 0;
 }
 
@@ -54,13 +54,13 @@ if(isNaN(autoCash) || autoCash < 1){
 
     addCoins(-bet);
 
-    multiplier = 1;
+    multiplier = 0;
     graphPoints = [];
     crashed = false;
     crashRunning = true;
 
     display.style.color="#00ff88";
-    display.textContent="1.00x";
+    display.textContent="0.00x";
 
     // Zufälliger Crash zwischen 0.00x und 3.00x
     crashPoint = 0 + Math.random()*3;
@@ -96,7 +96,7 @@ drawGraph();
     // Auto Cash Out
 if(
     crashRunning &&
-    autoCash > 1 &&
+    autoCash > 0 &&
     multiplier >= autoCash
 ){
 
